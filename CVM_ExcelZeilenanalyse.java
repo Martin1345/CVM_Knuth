@@ -1,15 +1,15 @@
 import java.io.*;
-//Impottiereung der Klasse für Dateioperationen
+//Importierung der Klasse für Dateioperationen
 import java.util.*;
-//Importiereung der Klasse für Sammlungen
+//Importierung der Klasse für Sammlungen
 import java.util.stream.Stream;
-//Importiereung der Klasse für Stream-Operationen
+//Importierung der Klasse für Stream-Operationen
 import org.apache.poi.ss.usermodel.*;
-//Importiereung der Klasse für Excel-Arbeitsblätter
+//Importierung der Klasse für Excel-Arbeitsblätter
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-// Importiereung der Klasse für Excel-Arbeitsmappen
+// Importierung der Klasse für Excel-Arbeitsmappen
 import org.apache.poi.util.IOUtils;
-// Importiereung der Klasse für IO-Operationen
+// Importierung der Klasse für IO-Operationen
 
 public class CVM_ExcelZeilenanalyse {
     //Methode zur Analyse einer Excel-Datei auf disjunkte Zeilen
@@ -19,18 +19,18 @@ public class CVM_ExcelZeilenanalyse {
         private final int s;
         //Größe des Puffers, je höher die Größe, desto genauer die Schätzung
         private final Random random;
-        //Zufallszahlengeneratior zur generierung von Zufallszahlen f+ür jedes Element
+        //Zufallszahlengenerator zur Generierung von Zufallszahlen für jedes Element
         private final TreeMap<String, Double> Puffer;
-        // Erstellung einer TreeMap, um die Elemente und ihre Zufallszahlen zu speichern Größe richtet sich nach der Größe des Puffers
+        // Erstellung einer TreeMap, um die Elemente und ihre Zufallszahlen zu speichern. Größe richtet sich nach der Größe des Puffers
         private double p;
         // Variable für die Wahrscheinlichkeit, dass ein Element in den Puffer aufgenommen wird
 
         public CVMSchätzer(int bufferSize) {
             // Konstruktor der Klasse, der die Größe des Puffers initialisiert
             this.s = bufferSize;
-            //Stezen der Größe des Puffers
+            //Setzen der Größe des Puffers
             this.random = new Random();
-            //Initlialisierung eines neuen Zufallsgenrator für die Erstellung von Zufallszahlen für jedes Element
+            //Initialisierung eines neuen Zufallsgenerators für die Erstellung von Zufallszahlen für jedes Element
             this.Puffer = new TreeMap<>();
             //Initialisierung des Puffers als TreeMap, um die Elemente und ihre Zufallszahlen zu speichern
             this.p = 1.0;
@@ -50,7 +50,7 @@ public class CVM_ExcelZeilenanalyse {
         }
 
         private void verarbeite_Element(String a) {
-            //Methode zur Verabeitung eines einzelnen Datenelementes im Stream
+            //Methode zur Verarbeitung eines einzelnen Datenelements im Stream
             Puffer.remove(a);
             // Entfernen des Elements aus dem Puffer, falls es bereits vorhanden ist
             double u = random.nextDouble();

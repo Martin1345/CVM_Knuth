@@ -12,9 +12,9 @@ public class CVMSchätzer {
     // Wahrscheinlichkeit, dass ein Element in den Puffer aufgenommen wird vorerst auf 1,0 gesetzt
 
     public CVMSchätzer(int Puffergröße) {
-        // Erstellung eines Konstuktors, der die Puffergröße initialisiert
+        // Erstellung eines Konstruktors, der die Puffergröße initialisiert
         this.s = Puffergröße;
-        // Initialisierung der Pufufergröße mit dem übergebenen Wert
+        // Initialisierung der Puffergröße mit dem übergebenen Wert
         this.random = new Random();
         // Erstellung eines neuen Zufallszahlengenerators um die Zufallswerte je Element zu generieren
         this.Puffer = new TreeMap<>();
@@ -33,7 +33,7 @@ public class CVMSchätzer {
             gesehenesElement.add(element);
             //Hinzufügen des aktuellen Elements zur Liste der gesehenen Elemente
             Verarbeitung(element);
-            //Verarbeitung des Elementes duch die Methode Verarbeitung
+            //Verarbeitung des Elements durch die Methode Verarbeitung
         });
         return Puffer.size() / p;
     }
@@ -90,7 +90,7 @@ public class CVMSchätzer {
         CVMSchätzer estimator = new CVMSchätzer(2); 
         // Anlegen eines Schätzers mit Puffergröße 2
         List<String> streamData = Arrays.asList("apple", "banana", "apple", "cherry", "banana", "durian", "apple", "banana");
-        // Beispiel-Datenstrom mit einigen wiederholten Elementen
+        // Beispiel Datenstrom mit einigen wiederholten Elementen
         double result = estimator.SchätzungGesehen(streamData.stream());
         // Schätzung der Anzahl verschiedener Elemente im Datenstrom
         System.out.printf("Geschätzte Anzahl verschiedener Elemente: %.2f%n", result);

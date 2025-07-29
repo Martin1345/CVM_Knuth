@@ -1,4 +1,4 @@
-import java.io.*;//Improtierung der Klasse für die Ein- und Ausgabe von Daten
+import java.io.*;//Importierung der Klasse für die Ein- und Ausgabe von Daten
 import java.util.*;// Importierung der Klassen für die Arbeit mit Sammlungen
 import java.util.stream.Stream;// Importierung der Klasse für die Arbeit mit Streams
 import javax.swing.text.BadLocationException;// Importierung der Klasse für die Behandlung von Fehlern bei der Textverarbeitung
@@ -69,7 +69,7 @@ public class CVMEstimator {
                 buffer.put(a, u);
                 // Hinzufügen des neuen Elements und der Zufallszahl zum Puffer
                 p = maxU;
-                // Aktualisierung der Wahrscheinlichkeit auf die höchste Zufallszahl im Puffe
+                // Aktualisierung der Wahrscheinlichkeit auf die höchste Zufallszahl im Puffer
             }
         }
     }
@@ -193,7 +193,7 @@ public class CVMEstimator {
                 // Berechnung der Abweichung jedes Schätzwerts von der tatsächlichen Anzahl der Zeilen
                         .map(e -> Math.abs(e - totalLines) / totalLines * 100.0)
                         .filter(e -> !Double.isNaN(e))
-                        // Filtern von NaN-Werten (nicht anwendbar in diesem Fall, aber sicherheitshalber)
+                        // Filtern von Not a Number-Werten (nicht anwendbar in diesem Fall, aber sicherheitshalber)
                         .average()
                         // Berechnung des Durchschnitts der Abweichungen
                         .orElse(0.0)
@@ -204,7 +204,7 @@ public class CVMEstimator {
         double avgMemoryKb = memoryUsages.stream().mapToLong(Long::longValue).average().orElse(0) / 1024.0;// Berechnung des durchschnittlichen Speicherverbrauchs in Kilobyte
 
         System.out.println(" Zusammenfassung:");// Ankündigung der Zusammenfassung der Ergebnisse
-        System.out.printf(" Tatsächliche Anzahl Zeilen: %d%n", totalLines);//Ausgabe der Anzahl an eigeksensen Zeilen
+        System.out.printf(" Tatsächliche Anzahl Zeilen: %d%n", totalLines);//Ausgabe der Anzahl an eingelesenen Zeilen
         System.out.printf(" Durchschnittlich geschätzte disjunkte Zeilen: %.2f%n", avgEstimate);// Ausgabe des Durchschnitts der geschätzten disjunkten Zeilen
         System.out.printf(" Median geschätzte disjunkte Zeilen: %.2f%n", medianEstimate);// Ausgabe des Medians der geschätzten disjunkten Zeilen
         System.out.printf(" Durchschnittliche Abweichung: %d %%\n", avgDeviationPercent);// Ausgabe der durchschnittlichen Abweichung in Prozent
